@@ -1,0 +1,13 @@
+{
+  "name": "pigpio-mock",
+  "version": "0.0.1",
+  "description": "Package used to mock Pigpio for local development",
+  "main": "src/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.4.2"
+  },
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha test"
+  }
+}
