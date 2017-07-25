@@ -2,6 +2,8 @@
 
 A mock library used for raspberry pi development on your local machine. It copies all method from https://github.com/fivdi/pigpio and logs information to the console, instead of controlling the Raspberry's GPIO pins.
 
+[![Build Status](https://travis-ci.org/deepsyx/pigpio-mock.svg?branch=master)](https://travis-ci.org/deepsyx/pigpio-mock) [![Coverage Status](https://coveralls.io/repos/github/deepsyx/pigpio-mock/badge.svg?branch=master)](https://coveralls.io/github/deepsyx/pigpio-mock?branch=master)
+
 # Installation
 It is as simple as:
 
