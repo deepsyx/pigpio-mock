@@ -5,9 +5,12 @@
   "main": "src/index.js",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^3.4.2"
+    "coveralls": "^2.13.1",
+    "mocha": "^3.4.2",
+    "nyc": "^11.0.3"
   },
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha test"
+    "test": "node ./node_modules/nyc/bin/nyc.js --reporter=html --reporter=text ./node_modules/mocha/bin/mocha",
+    "coverage": "node ./node_modules/nyc/bin/nyc.js report --reporter=text-lcov | node ./node_modules/coveralls/bin/coveralls"
   }
 }
