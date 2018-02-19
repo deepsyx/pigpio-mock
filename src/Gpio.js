@@ -10,7 +10,7 @@ class Gpio {
 		this.digitalValue = 0;
 		this.pwmValue = 0;
 		this.frequency = 31;
-		this.pwmRange = 0;
+		this._pwmRange = 0;
 
 		log(`[GPIO ${this.gpio} / constructor] Initializing...`);
 
@@ -93,17 +93,17 @@ class Gpio {
 
 	pwmRange(range) {
 		log(`[GPIO ${this.gpio} / pwmRange] Setting pwmRange = ${range}`);
-		this.pwmRange = range;
+		this._pwmRange = range;
 		return this;
 	}
 
 	getPwmRange() {
-		log(`[GPIO ${this.gpio} / getPwmRange] Getting pwmRange = ${this.pwmRange}`);
-		return this.pwmRange;
+		log(`[GPIO ${this.gpio} / getPwmRange] Getting pwmRange = ${this._pwmRange}`);
+		return this._pwmRange;
 	}
 
 	getPwmRealRange() {
-		log(`[GPIO ${this.gpio} / getRealPwmRange] Getting pwmRange = ${this.pwmRange}`);
+		log(`[GPIO ${this.gpio} / getRealPwmRange] Getting pwmRange = ${this._pwmRange}`);
 		return this;
 	}
 
