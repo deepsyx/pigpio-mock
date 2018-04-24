@@ -11,6 +11,7 @@ class Gpio {
 		this.pwmValue = 0;
 		this.frequency = 31;
 		this._pwmRange = 0;
+		this.servoPulseWidth = Gpio.MED_SERVO_PULSE_WIDTH;
 
 		log(`[GPIO ${this.gpio} / constructor] Initializing...`);
 
@@ -119,13 +120,14 @@ class Gpio {
 	}
 
 	servoWrite(pulseWidth) {
-		log(`[GPIO ${this.gpio} / servoWrite] METHOD NOT IMPLEMENTED`);
+		this.servoPulseWidth = Math.min(Math.max(parseInt(pulseWidth), Gpio.MIN_SERVO_PULSE_WIDTH), Gpio.MAX_SERVO_PULSE_WIDTH);
+		log(`[GPIO ${this.gpio} / servoWrite] Setting pulseWidth = ${this.servoPulseWidth}`);
 		return this;
 	}
 
 	getServoPulseWidth() {
-		log(`[GPIO ${this.gpio} / getServoPulseWidth] METHOD NOT IMPLEMENTED`);
-		return null;
+		log(`[GPIO ${this.gpio} / getServoPulseWidth] Getting pulseWidth = ${this.servoPulseWidth}`);
+		return this.servoPulseWidth;
 	}
 }
 
@@ -155,5 +157,10 @@ Gpio.TIMEOUT = 2; // PI_TIMEOUT;
 Gpio.MIN_GPIO = 0; // PI_MIN_GPIO;
 Gpio.MAX_GPIO = 53; // PI_MAX_GPIO;
 Gpio.MAX_USER_GPIO = 31; // PI_MAX_USER_GPIO;
+
+/* gpio servo pulseWidth */
+Gpio.MIN_SERVO_PULSE_WIDTH = 500; // most anti-clockwise position
+Gpio.MED_SERVO_PULSE_WIDTH = 1500; // center position
+Gpio.MAX_SERVO_PULSE_WIDTH = 2500; // most clockwise position
 
 module.exports = Gpio;
