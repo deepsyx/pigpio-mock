@@ -62,4 +62,14 @@ describe("Gpio", function() {
 		pin.pwmFrequency(1024);
 		assert(pin.getPwmFrequency(), 1024);
 	});
+
+	it("should be able to servoWrite and getServoPulseWidth", function() {
+		const pin = new Gpio(13);
+		pin.servoWrite(1200);
+		assert.equal(pin.getServoPulseWidth(), 1200);
+		pin.servoWrite(0);
+		assert.equal(pin.getServoPulseWidth(), 500);
+		pin.servoWrite(3000);
+		assert.equal(pin.getServoPulseWidth(), 2500);
+	});
 });
