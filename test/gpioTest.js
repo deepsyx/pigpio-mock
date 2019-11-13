@@ -75,6 +75,6 @@ describe("Gpio", function() {
 
 	it("should be able to call on", function() {
 		const pin = new Gpio(13);
-		assert.equal(typeof pin.on, 'function');
+		pin.on('event', () => {});
 	});
 });
