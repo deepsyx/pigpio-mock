@@ -129,6 +129,10 @@ class Gpio {
 		log(`[GPIO ${this.gpio} / getServoPulseWidth] Getting pulseWidth = ${this.servoPulseWidth}`);
 		return this.servoPulseWidth;
 	}
+
+	on(event, handler) {
+		log(`[GPIO ${this.gpio} / on ${event}] will run handler`);
+	}
 }
 
 Gpio.INPUT = 0; // PI_INPUT

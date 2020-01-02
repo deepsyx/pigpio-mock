@@ -72,4 +72,9 @@ describe("Gpio", function() {
 		pin.servoWrite(3000);
 		assert.equal(pin.getServoPulseWidth(), 2500);
 	});
+
+	it("should be able to call on", function() {
+		const pin = new Gpio(13);
+		pin.on('event', () => {});
+	});
 });
