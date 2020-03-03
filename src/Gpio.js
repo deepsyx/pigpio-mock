@@ -155,7 +155,7 @@ class Gpio {
   }
 
   removeAllListeners() {
-    log(`[GPIO ${this.gpio} / removed all listeners)`);
+    log(`[GPIO ${this.gpio} / removed all listeners for this pin)`);
   }
 
   on(event, handler) {
